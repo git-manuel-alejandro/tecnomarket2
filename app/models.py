@@ -15,6 +15,7 @@ class Producto(models.Model):
     nuevo = models.BooleanField()
     marca = models.ForeignKey(Marca , on_delete=models.PROTECT)
     fecha_fabricacion = models.DateField()
+    imagen = models.ImageField(upload_to = 'productos/%Y/%m/%d/' , null=True)
   
 
     def __str__(self):
