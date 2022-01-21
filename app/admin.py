@@ -12,3 +12,6 @@ class ProductoAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Marca)
 admin.site.register(models.Producto , ProductoAdmin)
+admin.site.register(models.TipoConsulta)
+admin.site.register(models.Contacto)
+

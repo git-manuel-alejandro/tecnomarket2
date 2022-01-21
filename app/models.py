@@ -20,3 +20,19 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class TipoConsulta(models.Model):
+    nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
+class Contacto(models.Model):
+    nombre = models.CharField(max_length=50)
+    correo = models.EmailField()
+    tipo_consulta = models.ForeignKey(TipoConsulta , on_delete=models.PROTECT)
+    mensaje = models.TextField()
+    avisos = models.BooleanField()
+
+    def __str__(self):
+        return self.nombre
