@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig', #add app's name
+    'django.contrib.humanize', #create dot por money text
 ]
 
 MIDDLEWARE = [
