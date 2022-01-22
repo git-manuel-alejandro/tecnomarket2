@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block contenido %}
+
+<div class="container py-3 d-flex justify-content-center">
+    <div class="row ">
+        <div class="card">
+            <div class="card-body">
+                <form action="" method="post" class="" > {% csrf_token %}
+                    {{ form | crispy}}
+                    <br>
+                    <div class="d-flex justify-content-end">
+                        <button type="reset" class="btn btn-secondary">Cancelar</button>
+                        &nbsp;
+                        <button type="submit" class="btn btn-success">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
