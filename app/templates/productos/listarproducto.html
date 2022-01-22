@@ -3,6 +3,30 @@
 
 {% load static %}
 {% load humanize %}
+
+
+{% block js %}
+  <script>
+    function eliminarProducto(id){
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you want to continue?',
+        icon: 'cuestion',
+        confirmButtonText: 'Cool',
+        showCancelButton: 'true' , 
+        cancelButtonText: 'No, Cancel', 
+        confirmButtonText: 'Yes, delete',
+        reverseButtons: 'true'
+      })
+      .then(function(result){
+        if (result.isConfirmed){
+          window.location.href = "/eliminarproducto/"+id+"/"
+        }
+
+      })
+    }
+  </script>
+{% endblock%}
 {% block contenido %}
 
 <div class="container py-3">
@@ -27,7 +51,8 @@
             <td><a href="{{p.imagen.url}}" target="_blank"><img src="{{p.imagen.url}}" width="40" height="40" style="border-radius: 50px;"alt=""></a></td>
             <td>
                 <a href="{% url 'editarproducto' p.id %}" class="btn btn-warning btn-sm">Editar</a>
-                <a href="{% url 'eliminarproducto' p.id %}" class="btn btn-danger btn-sm">Eliminar</a>                
+                <a href="#" onclick="eliminarProducto({{ p.id }})" class="btn btn-danger btn-sm">Eliminar</a>
+                <!-- <a href="{% url 'eliminarproducto' p.id %}" class="btn btn-danger btn-sm">Eliminar</a>                 -->
                 
             </td>
           </tr>

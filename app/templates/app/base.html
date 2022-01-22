@@ -40,27 +40,41 @@
 <div class="container">
     {% block contenido %}
     
-
+    
     {% endblock %}
 </div>
 
 
 
-    <footer>
-        <div class="marcas">
-            <img src="{% static 'app/img/footer/apple.png' %}" alt="apple">
-            <img src="{% static 'app/img/footer/lenovo.png' %}" alt="lenovo">
-            <img src="{% static 'app/img/footer/microsoft.png' %}" alt="microsoft">
-            <img src="{% static 'app/img/footer/samsung.png' %}" alt="samsung">
-            <img src="{% static 'app/img/footer/xiaomi.png' %}" alt="xiaomi">
-        </div>
-        <div class="logo_footer">
-            <img src="{% static 'app/img/tecnomarketpngicono.png' %}" alt="logo">
-        </div>
-    </footer>
+<footer>
+    <div class="marcas">
+        <img src="{% static 'app/img/footer/apple.png' %}" alt="apple">
+        <img src="{% static 'app/img/footer/lenovo.png' %}" alt="lenovo">
+        <img src="{% static 'app/img/footer/microsoft.png' %}" alt="microsoft">
+        <img src="{% static 'app/img/footer/samsung.png' %}" alt="samsung">
+        <img src="{% static 'app/img/footer/xiaomi.png' %}" alt="xiaomi">
+    </div>
+    <div class="logo_footer">
+        <img src="{% static 'app/img/tecnomarketpngicono.png' %}" alt="logo">
+    </div>
+</footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>    
-    <script src="{% static 'js/menu.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>    
+<script src="{% static 'js/menu.js' %}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+        {%for m in messages %}
+            <script>
+                Swal.fire({
+                    'title' : 'Felicitaciones',
+                    'text' : '{{ m }}' ,
+                    'icon' : 'success'
+
+                })
+            </script>
+        {% endfor%}
+
+    {% endif %}
 
     {% block js %} {% endblock %}
     
