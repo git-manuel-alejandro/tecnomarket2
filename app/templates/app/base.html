@@ -17,20 +17,19 @@
     <header id="header">
         <img class="menu" src="{% static 'app/img/menuiconwhite.png' %}" alt="menu" id="menu">
         <div class="contenedor_logo">
-            <img  class="logo"  src="{% static 'app/img/tecnomarketpngicono.png' %}" alt="logo">
+            <a href="{% url 'home' %}"><img  class="logo"  src="{% static 'app/img/tecnomarketpngicono.png' %}" alt="logo"></a>            
         </div>
 
         <div>
             
             <nav id="nav">
                 <ul>
-                    <li>
-                        <a href="{% url 'home' %}"> Inicio </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'contacto' %}">Contacto</a>
-                    </li>
+                    <li><a href="{% url 'home' %}">Inicio</a></li>
+                    <li><a href="{% url 'contacto' %}">Contacto</a></li>
                     <li><a href="{% url 'galeria' %}">Galería</a></li>
+                    <li><a href="{% url 'crearproducto' %}">Crear</a></li>
+                    <li><a href="{% url 'listarproducto' %}">Listar</a></li>
+                    
                 </ul>
             </nav>
 
