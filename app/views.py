@@ -4,6 +4,7 @@ from .import models
 from .import forms
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.contrib.auth import authenticate , login
 
 # Create your views here.
 
@@ -87,5 +88,21 @@ def eliminarproducto(request, id):
 
     return redirect(to = 'listarproducto')
 
+def registrouser(request):
+    context = {
+        'form' : forms.CustumUserCreationForm() 
+    }
+    if request.method == 'POST':
+        formulario = forms.CustumUserCreationForm(data = request.POST )
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username= formulario.cleaned_data['username'] , 
+            password= formulario.cleaned_data['password1'])
+            login(request, user)
+            messages.success(request , 'Usuario correctamente')
+            return redirect(to="home")
+        else:
+            context['form'] = formulario
 
+    return render(request, 'registration/registrouser.html' , context)
 

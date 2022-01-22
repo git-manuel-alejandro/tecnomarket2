@@ -34,6 +34,7 @@
                     <li><a href="#">{{ user.username }}</a></li>
                     {% else %}
                     <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+                    <li><a href="{% url 'registrouser' %}">Crear cuenta</a></li>
                     {% endif%}
                     
                 </ul>

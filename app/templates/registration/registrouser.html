@@ -6,6 +6,7 @@
 <div class="container py-3 d-flex justify-content-center">
     <div class="row ">
         <div class="card">
+            <h3>Crea tu cuenta</h3>
             <div class="card-body">
                 <form action="" method="post" class="" > {% csrf_token %}
                     {{ form | crispy}}
@@ -13,11 +14,10 @@
                     <div class="d-flex justify-content-end">
                         <button type="reset" class="btn btn-secondary">Cancelar</button>
                         &nbsp;
-                        <button type="submit" class="btn btn-success">Login</button>
+                        <button type="submit" class="btn btn-success">Registrar</button>
                     </div>
                 </form>
             </div>
-            <a href="{% url 'registrouser' %}">Crear cuenta</a>
         </div>
     </div>
 </div>
