@@ -50,8 +50,13 @@
             <td>{{ p.marca | capfirst }}</td>
             <td><a href="{{p.imagen.url}}" target="_blank"><img src="{{p.imagen.url}}" width="40" height="40" style="border-radius: 50px;"alt=""></a></td>
             <td>
+                {% if perms.app.update_producto %}
                 <a href="{% url 'editarproducto' p.id %}" class="btn btn-warning btn-sm">Editar</a>
+                {% endif %}
+
+                {% if perms.app.delete_producto %}
                 <a href="#" onclick="eliminarProducto({{ p.id }})" class="btn btn-danger btn-sm">Eliminar</a>
+                {% endif %}
                 <!-- <a href="{% url 'eliminarproducto' p.id %}" class="btn btn-danger btn-sm">Eliminar</a>                 -->
                 
             </td>
