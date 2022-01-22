@@ -42,7 +42,7 @@
           </tr>
         </thead>
         <tbody>
-            {% for p in productos %}
+            {% for p in entity %}
           <tr>
             <th scope="row">{{ p.id }}</th>
             <td>{{ p.nombre | capfirst}}</td>
@@ -59,6 +59,10 @@
           {% endfor%}
         </tbody>
       </table>
+
+      <div>
+        {% include 'app/paginator.html' %}
+      </div>
 </div>
 
 {% endblock %}

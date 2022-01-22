@@ -1,7 +1,9 @@
+from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from .import models
 from .import forms
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -47,8 +49,17 @@ def crearproducto(request):
 
 def listarproducto(request):
     productos = models.Producto.objects.all()
+    page = request.GET.get('page', 1)
+
+    try:
+        paginator = Paginator(productos , 2)  #items for page
+        productos = paginator.page(page)
+    except:
+        raise Http404
+
     context = {
-        'productos' : productos
+        'entity' : productos,
+        'paginator' : paginator
     }
     return render(request, 'productos/listarproducto.html' , context)
 
