@@ -1,7 +1,11 @@
-from unicodedata import name
 from django import views
-from django.urls import path
+from django.urls import path , include
 from .import views
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register('producto' , views.ProductoViewset)
 
 urlpatterns = [
     path('', views.home , name='home'),
@@ -12,5 +16,7 @@ urlpatterns = [
     path('editarproducto/<id>/', views.editarproducto , name='editarproducto'),
     path('eliminarproducto/<id>/', views.eliminarproducto , name='eliminarproducto'),
     path('registrouser/', views.registrouser , name='registrouser'),
+    path('api/', include(router.urls)),
+    
 
 ]
